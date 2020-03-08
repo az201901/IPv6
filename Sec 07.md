@@ -35,6 +35,13 @@ Detection ）
 
 # 7.2　ルータとプレフィックス情報の発見
 
+　ルータでは、ネットワーク設定に必要な情報を含む Router Advertisement
+を、定期的にマルチキャストで送信します。これにより、そのルータのサブネットに接続して
+いる機器は、そのサブネットを利用した通信を行うために必要な情報を得られます。
+
+　 Router Solicitation メッセージを送ることにより、 Router Advertisement メッセージ
+を直ちに受け取ることも可能です。
+
 # 7.2.1　Router Advertisement メッセージ
 
 　Router Advertisement は、タイプ 134 の ICMPv6 メッセージです。
@@ -86,3 +93,20 @@ RFC 4191 で Prf として 2 ビットが使われることになっており、
 　RA に含まれるフラグについては、上記の状況を整理し、さ
 らに必要な場合にフラグを拡張できるように、 Flags Expansion というオプションを定義した
 RFC 5175 が発行されています。
+
+# 7.2.2　Router Solicitation メッセージ
+
+　IPv6 ノード側からルータに対して
+Router Advertisement をただちに送信するように要求するために、 この Router Solicitation
+メッセージを使います。
+
+ IPv6 アドレスの自動設定を行うときなど、まだ IPv6 アドレスが設定されてい
+ない場合には、送信元 IPv6 アドレスとして、未定義アドレス（ ::/128 ）を使うことになっています。
+
+　Router Solicitation メッセージを運ぶ IPv6 パケットでは、 IPv6 ヘッダの宛先 IPv6 アドレス
+として、通常は全ルータマルチキャストアドレス（ ff02::2 ）が使われます。
+
+　Router Solicitation メッセージを運ぶ IPv6 パケットでは、 Router Advertisement メッセー
+ジと同様に、 IPv6 ヘッダの Hop Limit の値を 255 とします。
+
+![図7.4](img/07_04.jpg)
