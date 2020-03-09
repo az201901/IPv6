@@ -519,8 +519,7 @@ RDNSS オプションと同様です。
 
 * Domain Names of DNS Search List （可変長）  
 　1 つ以上のドメイン名を含めます。各ドメイン名は、 RFC 1035 の Section 3.1 に記載され
-たフォーマットです。 17.3.2 項で解説しているフォーマットと同じです。
-
+たフォーマットです。 17.3.2 項で解説しているフォーマットと同じです。  
 > NOTE　DNS suffix search list が抱えるセキュリティ上の問題
 
 > 　DNS suffix search list には、まったく異なる FQDN へ誘導されるというセキュリティ上の問題があります。
