@@ -499,5 +499,35 @@ RA のみで利用されます。
 
 　1 つの RDNSS オプションで、複数のキャッシュ DNS サーバ IPv6 アドレスに対する個別の
 Lifetime を表現することはできません。しかし、 1 つの Router Advertisement メッセージに、
-それぞれ Lifetime が異なる複数の RDNSS オプションを添付することは可能です
+それぞれ Lifetime が異なる複数の RDNSS オプションを添付することは可能です。
 
+## 7.5.7　DNSSL （ DNS Search List ）オプション
+
+　DNSSL は、 DNS suffix search list を提供するためのオプションです。たとえば http:
+//www/ としたときに、 DNSSL オプションに example.com が設定されていれば、自動的に
+http://www.example.com/ であると解釈されたうえで処理されます。
+
+![図7.15](img/07_15.jpg)
+
+*  Length （ 8 ビット）  
+オプション全体の長さを 8 オクテット単位で示します。このフィールドの値は、 Domain
+Names of DNS Search List フィールドの長さに応じて変わります。最小値は 2 です。
+
+* Lifetime （ 32 ビット）  
+　このオプションが示す DNS サーバを使ってもよい期間を秒単位で示します。値の意味は
+RDNSS オプションと同様です。
+
+* Domain Names of DNS Search List （可変長）  
+　1 つ以上のドメイン名を含めます。各ドメイン名は、 RFC 1035 の Section 3.1 に記載され
+たフォーマットです。 17.3.2 項で解説しているフォーマットと同じです。
+
+> NOTE　DNS suffix search list が抱えるセキュリティ上の問題
+> 　DNS suffix search list には、まったく異なる FQDN へ誘導されるというセキュリティ上の問題があります。
+この攻撃によって、例えばスワードや電子メールのような情報が盗まれる可能性が考えられます。
+> 　この問題は、 IPv4 における DHCP にも同様に存在します。 IPv4 の DHCP における
+DNS suffix search list のオプションを規定した RFC 3397 では、このような攻撃は
+DNSSEC でも防げないと明記されています。これは、 suffix が追加されるのが DNS 問い
+合わせの時点であるため、 DNSSEC の保護の対象外となるためです。
+> 　なお、不正な RA によるセキュリティ上の問題は、
+DNSSL に限りません。RA に関連するセキュリティに関
+しては、 15.4 節をご覧ください。
