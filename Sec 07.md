@@ -382,4 +382,31 @@ Redirect メッセージにある内容と整合性が取れていること
 　RFC 4861 では、オプションが 64 ビット境界で終端するように、必要に応じてパディングす
 ることが推奨されている。
 
+# 7.5.2　Source Link-layer Address オプションと Target Link-layer Address オプション
 
+　Source Link-layer Address オプションには、パケット送信者のリンク層アドレスを含めま
+す。NS、RS、RA で利用されるオプション。
+
+　Target Link-layer Address オプションには、メッセージの対象となるノードのリンク層ア
+ドレスを含めます。NA と Redirect メッセージで利用される
+オプションです。
+
+![図7.9](img/07_09.jpg)
+
+* Type （ 8 ビット）
+　Source Link-layer Address オプションの場合は 1 、 Target Link-layer Address オプション
+の場合は 2 です。
+
+* Length （ 8 ビット）
+　オプション全体の長さを 8 オクテット単位で示します。**リンク層がイーサネットの場合、こ
+のフィールドの値は 1 になります。**
+
+* Link-layer Address （可変長）
+　リンク層アドレスを格納するためのフィールドです。このフィールドの長さはリンク層の種
+類によって変わります。
+
+　RFC 2464 に、 リンク層がイーサネットである場合の Target Link-layer Address オプショ
+ンの例が紹介されています。図 7.10 のように、 48 ビット（ 6 オクテット）の IEEE 802 アドレ
+スが Type と Length フィールドの直後に続きます。
+
+![図7.10](img/07_10.jpg)
