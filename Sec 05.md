@@ -2,8 +2,8 @@
 
 ![図5.1](img/05_01.jpg)
 
-* `Version` 6
-* `Traffic Class` IPv4 の ToS に代わるもの
+* `Version` : 6
+* `Traffic Class` : IPv4 の ToS に代わるもの
 * Flow Label: 通信フロー制御に利用される予定。現時点でも不明確なものとなっている。
 * Payload Length: IPv6 ヘッダは含まない長さ。（IPv6拡張ヘッダは含む）
 * Next Header: IPv6 ヘッダに続くヘッダのタイプを示す。例えば、次が TCPヘッダとなるならば 6 となる。
