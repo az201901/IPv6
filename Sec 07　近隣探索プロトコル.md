@@ -7,17 +7,15 @@
 
 　RFC 4861 では、近隣探索プロトコルが提供する機能を以下のように要約しています。
 
-```
-・リンク上のルータを探す機能（ Router Discovery ）  
-・ルータを経由せずに到達できる IPv6 アドレスの範囲を知る機能（ Prefix Discovery ）  
-・リンクの MTU などの情報を知る機能（ Parameter Discovery ）
-・インターフェースに対してステートレスにアドレスを振る機能（ Address Autoconfiguration ）
-・IPv6 アドレスからリンク層のアドレスを解決する機能（ Address Resolution ）
-・宛先アドレスをもとに、次にパケットを送出すべき IPv6 アドレスを知る機能（ Next-hop Determination ）
-・近隣ノードに到達できなくなったことを知る近隣不到達性検知 （ Neighbor Unreachability Detection ）
-・利用するアドレスが他のノードで使われていないかを確認する機能（ Duplicate Address Detection ）
-・ルータからホスト † 3 へ、より適切な送出先を伝える方法（ Redirect )
-```
+* リンク上のルータを探す機能（ Router Discovery ）  
+* ルータを経由せずに到達できる IPv6 アドレスの範囲を知る機能（ Prefix Discovery ）  
+* リンクの MTU などの情報を知る機能（ Parameter Discovery ）
+* インターフェースに対してステートレスにアドレスを振る機能（ Address Autoconfiguration ）
+* IPv6 アドレスからリンク層のアドレスを解決する機能（ Address Resolution ）
+* 宛先アドレスをもとに、次にパケットを送出すべき IPv6 アドレスを知る機能（ Next-hop Determination ）
+* 近隣ノードに到達できなくなったことを知る近隣不到達性検知 （ Neighbor Unreachability Detection ）
+* 利用するアドレスが他のノードで使われていないかを確認する機能（ Duplicate Address Detection ）
+* ルータからホスト † 3 へ、より適切な送出先を伝える方法（ Redirect )
 
 　上記の機能を実現するために、近隣探索プロトコルでは、次の 5 つの ICMPv6 メッセージを
 組み合わせて利用します。
